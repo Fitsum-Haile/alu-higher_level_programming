@@ -1,4 +1,5 @@
 #!/usr/bin/python3
 
 
-print(''.join(chr(122 - i % 2 * 32 - i) for i in range(26, -1, -1)), end='')
+for i in range(26):
+    print("{}".format(chr(122 - i - (32 if i % 2 else 0))), end="")
