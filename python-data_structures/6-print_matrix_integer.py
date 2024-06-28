@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def print_matrix_integer(matrix=[[]]):
     for row in matrix:
         if row:
@@ -8,6 +9,6 @@ def print_matrix_integer(matrix=[[]]):
                     print("{:d}".format(row[i]), end="")
                 else:
                     print("{:d} ".format(row[i]), end="")
-            print()  # Print a newline after each row
+            print()
         else:
-            print() 
+            print()
