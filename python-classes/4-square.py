@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Square class definition with size validation, area calculation, and access/update for private attribute."""
+"""Square class definition with size validation, area calculation,
+and access/update for private attribute."""
 
 
 class Square:
