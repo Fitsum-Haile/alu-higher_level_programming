@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Square class definition with size validation, area calculation, 
+"""Square class definition with size validation, area calculation,
 printing capabilities, and position handling."""
 
 
@@ -15,8 +15,8 @@ class Square:
             position (tuple): The position of the square. Defaults to (0, 0).
 
         Raises:
-            TypeError: If size is not an integer or position is 
-            not a tuple of 2 positive integers.
+            TypeError: If size is not an integer or position is not a tuple of 
+            2positive integers.
             ValueError: If size is less than 0.
         """
         self.size = size
