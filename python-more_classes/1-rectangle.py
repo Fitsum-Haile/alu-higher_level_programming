@@ -8,7 +8,7 @@ class Rectangle:
     '''
     Represents a rectangle with private instance attributes
     '''
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
@@ -28,7 +28,7 @@ class Rectangle:
             ValueError: if width is less than 0
         '''
         if not isinstance(value, int):
-            raise TypeError("Width must be an integer")
+            raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
@@ -46,11 +46,10 @@ class Rectangle:
         Sets the height of the rectangle
         Raises:
             TypeError: if height is not an integer
-            valueError: if height is less than 0
+            ValueError: if height is less than 0
         '''
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
