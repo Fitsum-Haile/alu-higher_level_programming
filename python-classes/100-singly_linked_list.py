@@ -14,7 +14,8 @@ class Node:
             next_node (Node): The next node in the list. Defaults to None.
 
         Raises:
-            TypeError: If data is not an integer or next_node is not a Node or None.
+            TypeError: If data is not an integer or next_node is not
+            a Node or None.
         """
         self.data = data
         self.next_node = next_node
