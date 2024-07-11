@@ -14,3 +14,8 @@ class LockedClass:
                 "'LockedClass' object has no attribute '{}'".format(name)
             )
         self.__dict__[name] = value
+
+    def __getattribute__(self, name):
+        if name == '__dict__':
+            raise AttributeError("'LockedClass' object has no attribute '__dict__'")
+        return object.__getattribute__(self, name)
