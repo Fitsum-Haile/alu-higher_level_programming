@@ -70,7 +70,8 @@ class Rectangle:
 
     def __str__(self):
         """
-        Provides a string representation of the rectangle using the '#' character.
+        Provides a string representation of the rectangle
+        using the '#' character.
         """
         if self.__width == 0 or self.__height == 0:
             return ""
@@ -83,6 +84,7 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string representation of the rectangle to recreate a new instance.
+        Returns a string representation of the rectangle
+        to recreate a new instance.
         """
         return f"Rectangle({self.__width}, {self.__height})"
