@@ -4,15 +4,18 @@ N Queens Puzzle Solver
 """
 import sys
 
+
 def print_usage_and_exit():
     """Prints usage message and exits with status 1"""
     print("Usage: nqueens N")
     sys.exit(1)
 
+
 def print_error_and_exit(message):
     """Prints error message and exits with status 1"""
     print(message)
     sys.exit(1)
+
 
 def is_safe(board, row, col):
     """
@@ -26,6 +29,7 @@ def is_safe(board, row, col):
            board[i] + i == col + row:
             return False
     return True
+
 
 def solve_nqueens(N):
     """
@@ -47,6 +51,7 @@ def solve_nqueens(N):
     solve(0)
     return solutions
 
+
 def main():
     if len(sys.argv) != 2:
         print_usage_and_exit()
@@ -63,5 +68,7 @@ def main():
     for solution in solutions:
         print([[i, solution[i]] for i in range(N)])
 
+
 if __name__ == "__main__":
     main()
+
