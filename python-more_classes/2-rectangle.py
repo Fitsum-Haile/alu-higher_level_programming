@@ -3,6 +3,7 @@
 A class Rectangle defined by width and height attributes
 """
 
+
 class Rectangle:
     """
     Represents a rectangle with private instance attributes
