@@ -3,9 +3,11 @@
 A class Rectangle defined by width and height attributes.
 """
 
+
 class Rectangle:
     """
-    Represents a rectangle with private instance attributes and class attribute.
+    Represents a rectangle with private instance attributes and
+    class attributes.
     """
 
     number_of_instances = 0
@@ -51,8 +53,10 @@ class Rectangle:
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join([str(self.print_symbol) * self.__width 
-                          for _ in range(self.__height)])
+        rect_lines = []
+        for _ in range(self.__height):
+            rect_lines.append(str(self.print_symbol) * self.__width)
+        return "\n".join(rect_lines)
 
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.__height})"
