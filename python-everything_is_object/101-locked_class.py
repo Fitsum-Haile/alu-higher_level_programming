@@ -1,23 +1,14 @@
 #!/usr/bin/python3
-"""LockedClass prevents dynamic attribute creation except for 'first_name'."""
-
-
 class LockedClass:
-    """A class that prevents dynamic attribute creation."""
+    __slots__ = ['first_name']
 
-    def __init__(self, first_name=None):
-        self._first_name = first_name
+# Usage Example (101-main.py)
+if __name__ == "__main__":
+    LockedClass = __import__('101-locked_class').LockedClass
 
-    def __setattr__(self, name, value):
-        if name != 'first_name':
-            raise AttributeError(
-                "'LockedClass' object has no attribute '{}'".format(name)
-            )
-        self._first_name = value
-
-    def __getattribute__(self, name):
-        if name == '_first_name':
-            return self.__dict__['_first_name']
-        if name == '__dict__':
-            raise AttributeError("'LockedClass' object has no attribute '__dict__'")
-        return object.__getattribute__(self, name)
+    lc = LockedClass()
+    lc.first_name = "John"
+    try:
+        lc.last_name = "Snow"
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
