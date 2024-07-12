@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+
 class LockedClass:
     __slots__ = ['first_name']
 
-# Usage Example (101-main.py)
+# Example Usage (101-main.py)
 if __name__ == "__main__":
     LockedClass = __import__('101-locked_class').LockedClass
 
