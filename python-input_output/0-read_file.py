@@ -1,11 +1,6 @@
-#!/usr/bin/python3
-"""This module provides a function to read a text file
-(UTF8) and print its content to stdout."""
-
-
 def read_file(filename=""):
   """
-  Reads a text file (UTF8) and prints its content to stdout.
+  Reads a text file (UTF-8) and prints its content to stdout.
 
   Args:
       filename (str, optional): The name of the file to read. Defaults to "".
