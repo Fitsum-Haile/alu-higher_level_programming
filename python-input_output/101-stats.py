@@ -10,11 +10,13 @@ import sys
 def parse_line(line):
     """Parse each line of input and extract status code and file size."""
     parts = line.split()
+    if len(parts) < 2:
+        return None, None
     try:
         status_code = int(parts[-2])
         file_size = int(parts[-1])
         return status_code, file_size
-    except (IndexError, ValueError):
+    except (ValueError, IndexError):
         return None, None
 
 
