@@ -3,13 +3,14 @@
 """
 Module: 100-append_after
 
-Contains a function to append text after each line containing a specific string in a file.
+Contains a function to append text after each line
+containing a specific string in a file.
 """
-
 
 def append_after(filename="", textsearch="", textappend=""):
     """
-    Append a line of text after each line containing a specific string in a file.
+    Append a line of text after each line
+    containing a specific string in a file.
 
     Args:
         filename (str): The name of the file to modify.
