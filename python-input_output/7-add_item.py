@@ -1,19 +1,51 @@
 #!/usr/bin/python3
 """
-Module: 1-write_file
+Module: 7-add_item
 """
 
-def write_file(filename="", text=""):
+import sys
+import os.path
+
+def load_from_json_file(filename):
     """
-    Write a string to a text file (UTF8) and return the number of characters written.
+    Load JSON data from a file.
 
     Args:
-        filename (str): The name of the file to write to.
-        text (str): The text content to write to the file.
+        filename (str): The name of the file to load from.
 
     Returns:
-        int: Number of characters written to the file.
+        list: The JSON-decoded data.
+        If the file doesn't exist, returns an empty list.
+    """
+    if not os.path.exists(filename):
+        return []
+
+    with open(filename, mode='r', encoding='utf-8') as f:
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError:
+            return []
+    return data
+
+def save_to_json_file(my_obj, filename):
+    """
+    Save JSON data to a file.
+
+    Args:
+        my_obj (object): The Python object to save as JSON.
+        filename (str): The name of the file to save to.
     """
     with open(filename, mode='w', encoding='utf-8') as f:
-        nb_characters = f.write(text)
-    return nb_characters
+        json.dump(my_obj, f)
+
+if __name__ == "__main__":
+    import json
+
+    filename = "add_item.json"
+    my_list = load_from_json_file(filename)
+
+    for arg in sys.argv[1:]:
+        my_list.append(arg)
+
+    save_to_json_file(my_list, filename)
+
