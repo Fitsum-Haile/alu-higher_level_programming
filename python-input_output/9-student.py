@@ -3,6 +3,7 @@
 Module: 9-student
 """
 
+
 class Student:
     """
     Class representing a Student.
