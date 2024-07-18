@@ -17,12 +17,14 @@ def parse_line(line):
     except (IndexError, ValueError):
         return None, None
 
+
 def print_statistics(total_size, status_counts):
     """Print current statistics."""
     print(f"File size: {total_size}")
     for code in sorted(status_counts):
         if status_counts[code] > 0:
             print(f"{code}: {status_counts[code]}")
+
 
 def main():
     total_size = 0
