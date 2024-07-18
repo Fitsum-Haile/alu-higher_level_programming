@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module: 9-student
+Module: 10-student
 """
 
 
@@ -21,16 +21,24 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+
+    def to_json(self, attrs=None):
         """
         Retrieve a dictionary representation of the Student instance.
+
+        Args:
+            attrs (list of str, optional): List of attribute names to retrieve.
+                                           Defaults to None.
 
         Returns:
             dict: Dictionary representation of the Student instance.
         """
-        json_dict = {
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'age': self.age
-        }
+        if attrs is None or not isinstance(attrs, list) or not all(isinstance(attr, str) for attr in attrs):
+            return self.__dict__
+
+        json_dict = {}
+        for attr in attrs:
+            if hasattr(self, attr):
+                json_dict[attr] = getattr(self, attr)
         return json_dict
+
