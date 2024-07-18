@@ -6,6 +6,7 @@ Module: 7-add_item
 import sys
 import os.path
 
+
 def load_from_json_file(filename):
     """
     Load JSON data from a file.
@@ -26,6 +27,7 @@ def load_from_json_file(filename):
         except json.JSONDecodeError:
             return []
     return data
+
 
 def save_to_json_file(my_obj, filename):
     """
@@ -48,4 +50,3 @@ if __name__ == "__main__":
         my_list.append(arg)
 
     save_to_json_file(my_list, filename)
-
