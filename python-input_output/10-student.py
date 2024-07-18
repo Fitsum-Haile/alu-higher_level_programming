@@ -32,12 +32,9 @@ class Student:
         Returns:
             dict: Dictionary representation of the Student instance.
         """
-        if attrs is None or not isinstance(attrs, list) or not all(isinstance(attr, str) for attr in attrs):
+        if attrs is None:
             return self.__dict__
-
-        json_dict = {}
-        for attr in attrs:
-            if hasattr(self, attr):
-                json_dict[attr] = getattr(self, attr)
-        return json_dict
-
+        elif isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
+            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
+        else:
+            return self.__dict__
