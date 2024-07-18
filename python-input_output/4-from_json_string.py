@@ -2,9 +2,8 @@
 """
 Module to convert JSON string to Python object.
 """
-
-
 import json
+
 
 def from_json_string(my_str):
     """Converts a JSON string to a Python object.
