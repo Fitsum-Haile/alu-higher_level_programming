@@ -6,7 +6,6 @@ and computes metrics based on the input format:
 
 import sys
 
-
 def parse_line(line):
     """Parse each line of input and extract status code and file size."""
     parts = line.split()
@@ -53,4 +52,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
