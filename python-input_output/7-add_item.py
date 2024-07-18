@@ -1,39 +1,19 @@
 #!/usr/bin/python3
 """
-Module to add all command-line arguments to a Python list
-and save them to a file in JSON format.
+Module: 1-write_file
 """
 
-import sys
-from os.path import exists
-from importlib import import_module
-
-# Import functions from previous tasks
-save_to_json_file = import_module('5-save_to_json_file').save_to_json_file
-load_from_json_file = import_module('6-load_from_json_file').load_from_json_file
-
-
-def main():
+def write_file(filename="", text=""):
     """
-    Main function to handle adding command-line arguments to a list
-    and saving them to a JSON file.
+    Write a string to a text file (UTF8) and return the number of characters written.
+
+    Args:
+        filename (str): The name of the file to write to.
+        text (str): The text content to write to the file.
+
+    Returns:
+        int: Number of characters written to the file.
     """
-    filename = "add_item.json"
-
-    # Check if the file exists
-    if exists(filename):
-        # Load existing data from the file
-        items = load_from_json_file(filename)
-    else:
-        # Initialize an empty list if the file doesn't exist
-        items = []
-
-    # Add new items from command-line arguments to the list
-    items.extend(sys.argv[1:])
-
-    # Save the updated list back to the file
-    save_to_json_file(items, filename)
-
-
-if __name__ == "__main__":
-    main()
+    with open(filename, mode='w', encoding='utf-8') as f:
+        nb_characters = f.write(text)
+    return nb_characters
