@@ -34,7 +34,10 @@ class Student:
         """
         if attrs is None:
             return self.__dict__
-        elif isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
-            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
-        else:
-            return self.__dict__
+        
+        json_dict = {}
+        for attr in attrs:
+            if isinstance(attr, str) and hasattr(self, attr):
+                json_dict[attr] = getattr(self, attr)
+        
+        return json_dict
