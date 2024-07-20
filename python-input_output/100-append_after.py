@@ -8,7 +8,6 @@ containing a specific string in a file.
 """
 
 
-
 def append_after(filename="", search_string="", new_string=""):
     """Inserts a line of text to a file based on some conditions"""
     with open(filename, 'r', encoding='UTF-8') as file:
