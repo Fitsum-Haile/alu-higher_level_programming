@@ -1,9 +1,19 @@
--- List all privileges of the MySQL users user_0d_1 and user_0d_2 on localhost
+-- Lists privileges of the MySQL users
 
--- Check for user_0d_1 and show their privileges
-SELECT CONCAT('Grants for user_0d_1@localhost') AS user_privilege;
+-- Revoke specific privileges from the users
+REVOKE 
+    AUDIT_ABORT_EXEMPT, 
+    FIREWALL_EXEMPT, 
+    AUTHENTICATION_POLICY_ADMIN, 
+    GROUP_REPLICATION_STREAM, 
+    PASSWORDLESS_USER_ADMIN, 
+    SENSITIVE_VARIABLES_OBSERVER, 
+    TELEMETRY_LOG_ADMIN 
+ON *.* 
+FROM 'user_0d_1'@'localhost', 'user_0d_2'@'localhost';
+
+-- Show the current privileges of user_0d_1
 SHOW GRANTS FOR 'user_0d_1'@'localhost';
 
--- Check for user_0d_2 and show their privileges
-SELECT CONCAT('Grants for user_0d_2@localhost') AS user_privilege;
+-- Show the current privileges of user_0d_2
 SHOW GRANTS FOR 'user_0d_2'@'localhost';
