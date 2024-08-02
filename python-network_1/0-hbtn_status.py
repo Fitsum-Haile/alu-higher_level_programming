@@ -1,20 +1,19 @@
 #!/usr/bin/python3
 """
-Fetches and displays the status of https://alu-intranet.hbtn.io/status.
+Module to fetch and display the status of a given URL.
 
-The script uses the urllib package to fetch the URL and prints the
-response details including the type of content, the content itself,
-and the UTF-8 decoded content.
+This module uses urllib to fetch the content from https://alu-intranet.hbtn.io/status
+and prints the content type, the raw content, and the UTF-8 decoded content.
 """
 
 import urllib.request
 
-def main():
+def fetch_status():
     """
-    Fetches data from the specified URL and prints the response details.
+    Fetches and displays the status of the URL.
 
-    The function uses the urllib.request.urlopen method to get the
-    response from the URL, reads the content, and prints:
+    Uses urllib.request to get the response from the URL, then reads and
+    prints:
     - The type of the response body.
     - The raw content of the response.
     - The UTF-8 decoded content of the response.
@@ -30,4 +29,4 @@ def main():
     print(f"    - utf8 content: {body.decode('utf-8')}")
 
 if __name__ == "__main__":
-    main()
+    fetch_status()
