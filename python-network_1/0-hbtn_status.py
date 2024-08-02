@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Fetches http://0.0.0.0:5050/status."""
+"""Fetches http://0.0.0.0:5050/status and prints the response details."""
 
 import urllib.request
 
