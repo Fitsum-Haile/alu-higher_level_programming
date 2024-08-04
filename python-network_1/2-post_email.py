@@ -7,7 +7,8 @@ This module takes two command-line arguments:
 1. URL of the target endpoint.
 2. Email address to be sent in the POST request.
 
-The module constructs a POST request with the provided email data, sends it to the specified URL,
+The module constructs a POST request with the
+provided email data, sends it to the specified URL,
 and prints the response body to the console.
 """
 
