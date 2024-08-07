@@ -5,7 +5,7 @@ Fetches and displays the content of a URL provided as a command-line argument
 
 This script takes a single URL as input from the command line.
 It then attempts to access the URL
-using the `urllib.request` module. 
+using the `urllib.request` module.
 """
 
 
@@ -18,4 +18,3 @@ if __name__ == "__main__":
             print(ans.read().decode('UTF-8'))
     except error.HTTPError as e:
         print('Error code:', e.code)
-
