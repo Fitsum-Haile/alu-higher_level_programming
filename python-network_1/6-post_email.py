@@ -4,16 +4,16 @@
 import sys
 import requests
 
+
 def post_email(url, email):
     """
     Sends a POST request with the email as a parameter.
     
     Args:
-        url (str): The URL to which the POST request is sent.
-        email (str): The email address to send in the POST request.
-    
+    url (str): The URL to which the POST request is sent.
+    email (str): The email address to send in the POST request.
     Returns:
-        str: The body of the response from the POST request.
+    str: The body of the response from the POST request.
     """
     response = requests.post(url, data={'email': email})
     return response.text
