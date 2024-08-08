@@ -12,13 +12,12 @@ def text_indentation(text):
 
     punctuation = [".", "?", ":"]
     result = ""
-    previous_char = None
     for char in text:
+        result += char
         if char in punctuation:
-            result += char + "\n\n"
+            result = result.rstrip() + "\n\n"
+        elif char == " " and (result[-2:] == "\n\n" or not result):
+            continue
         else:
-            if previous_char in punctuation:
-                result = result.rstrip() + " "
-            result += char
-        previous_char = char
+            result += " "
     print(result.strip())
