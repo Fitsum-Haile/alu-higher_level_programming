@@ -1,48 +1,30 @@
-# Import method
+# Import module
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-# Test with valid text
->>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?
-... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud:
-... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere.
-... Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum
-... rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo
-... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum
-... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio
-... beatiorem! Iam ruinas videresguillaume@ubuntu:~/$ """)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+# text is string
+>>> text_indentation("Who are you? I am segun.")
+Who are you?
+<BLANKLINE>
+I am segun.
 
-Quonam modo?
-
-Utrum igitur tibi litteram videor an totas paginas commovere?
-
-Non autem hoc:
-
-igitur ne illud quidem.
-
-Fortasse id optimum, sed ubi illud:
-
-Plus semper voluptatis?
-
-Teneo, inquit, finem illi videri nihil dolere.
-
-Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
-
-Si id dicis, vicimus.
-
-Inde sermone vario sex illa a Dipylo stadia confecimus.
-
-Sin aliud quid voles, postea.
-
-Quae animi affectio suum cuique tribuens atque hanc, quam dico.
-
-Utinam quidem dicerent alium alio beatiorem! Iam ruinas videresguillaume@ubuntu:~/$ 
-
-# Test with empty string
->>> text_indentation("")
-
-# Test with non-string input
->>> text_indentation(12)
+# text is not string
+>>> text_indentation(98)
 Traceback (most recent call last):
+	...
 TypeError: text must be a string
+
+# Zero arguments
+>>> text_indentation()
+Traceback (most recent call last):
+	...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+# String without any symbols
+>>> text_indentation("My name is Segun")
+My name is Segun
+
+# Multiple string in close proximity
+>>> text_indentation("hello?? what is going on")
+hello??
+<BLANKLINE>
+what is going on

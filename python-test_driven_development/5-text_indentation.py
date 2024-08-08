@@ -3,24 +3,13 @@
 
 
 def text_indentation(text):
-    """Prints a text with 2 new lines after each of these characters: ., ? and :.
-
-    Args:
-        text (str): The text to be printed.
-
-    Raises:
-        TypeError: If `text` is not a string.
-    """
-    if not isinstance(text, str):
+    """Prints a text with 2 new lines after each
+    of these characters: ., ? and :"""
+    if type(text) is not str:
         raise TypeError("text must be a string")
-
-    punctuation = [".", "?", ":"]
-    result = ""
-    for char in text:
-        if char in punctuation:
-            result = result.rstrip() + char + "\n\n"
-        elif char == " " and (result.endswith("\n\n") or not result):
-            continue
-        else:
-            result += char
-    print(result.strip())
+    for i in range(0, len(text)):
+        print(text[i], end="")
+        if text[i] == "." or text[i] == "?" or text[i] == ":":
+            print("\n")
+            if i < len(text) - 1 and text[i + 1] == " ":
+                i += 1
