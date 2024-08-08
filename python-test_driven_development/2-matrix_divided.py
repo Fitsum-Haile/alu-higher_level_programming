@@ -6,7 +6,6 @@ by a number and rounds to 2 decimal places.
 """
 
 
-
 def matrix_divided(matrix, div):
     """Divides all elements of a matrix
     Args:
