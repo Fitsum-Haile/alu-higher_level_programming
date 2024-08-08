@@ -11,15 +11,24 @@ to see if it works?
 
 Yes!
 
->>> text_indentation("Just a test.")
-Just a test.
+>>> text_indentation("Holberton School")
+Holberton School
 
->>> text_indentation("Multiple questions?? and some colons::")
-Multiple questions?
+>>> text_indentation("Holberton. School")
+Holberton.
 
-and some colons:
+School
 
->>> text_indentation(12345)
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
+
+School?
+
+How are you:
+
+John
+
+>>> text_indentation(12)
 Traceback (most recent call last):
     ...
 TypeError: text must be a string
