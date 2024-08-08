@@ -26,4 +26,6 @@ def text_indentation(text):
                 new_text += char
                 indent = False
 
-    print(new_text.strip())
+    # Print the result, ensuring proper formatting
+    result = '\n'.join(line.strip() for line in new_text.strip().split('\n'))
+    print(result)

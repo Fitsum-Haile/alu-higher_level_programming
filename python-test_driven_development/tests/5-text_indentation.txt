@@ -1,9 +1,16 @@
-# Tests
+#!/usr/bin/python3
+"""
+Test cases for text_indentation function.
+"""
+
+import doctest
+from 5-text_indentation import text_indentation
+
+def run_tests():
+    """
+    Run doctests on the text_indentation function.
+    """
+    doctest.testfile("tests/5-text_indentation.txt")
+
 if __name__ == "__main__":
-    text_indentation("Holberton School")
-    text_indentation("Holberton.School")
-    text_indentation("Holberton. School? How are you: John")
-    try:
-        text_indentation(12)
-    except TypeError as e:
-        print(e)
+    run_tests()
