@@ -26,10 +26,10 @@ class Rectangle(Base):
             If None, it will be automatically assigned.
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -68,7 +68,7 @@ class Rectangle(Base):
     def x(self, value):
         """Set the x coordinate of the rectangle."""
         if not isinstance(value, int):
-            raise TypeError("x must b an integer")
+            raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
