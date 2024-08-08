@@ -106,9 +106,9 @@ class Rectangle(Base):
     def __str__(self):
         """
         Return a string representation of the rectangle.
-        
         Returns:
             str: The string representation of the rectangle in
                  the format [Rectangle] (<id>) <x>/<y> - <width>/<height>.
         """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} -
+        {self.__width}/{self.__height}"
