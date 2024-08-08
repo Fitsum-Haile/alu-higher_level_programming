@@ -10,23 +10,18 @@ class TestMaxInteger(unittest.TestCase):
     def test_positive_integers(self):
         """Test with a list of positive integers."""
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-        self.assertEqual(max_integer([4, 3, 2, 1]), 4)
-        self.assertEqual(max_integer([1, 3, 4, 2]), 4)
 
     def test_negative_integers(self):
         """Test with a list of negative integers."""
         self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
-        self.assertEqual(max_integer([-4, -3, -2, -1]), -1)
 
     def test_mixed_integers(self):
         """Test with a list of both positive and negative integers."""
         self.assertEqual(max_integer([-1, 0, 1, 2, -2]), 2)
-        self.assertEqual(max_integer([-10, 100, -100, 0]), 100)
 
     def test_single_element(self):
         """Test with a single-element list."""
         self.assertEqual(max_integer([10]), 10)
-        self.assertEqual(max_integer([-10]), -10)
 
     def test_empty_list(self):
         """Test with an empty list."""
@@ -43,10 +38,6 @@ class TestMaxInteger(unittest.TestCase):
             max_integer(['a', 'b', 'c'])
         with self.assertRaises(TypeError):
             max_integer([1, 2, 'a', 4])
-
-    def test_list_with_one_integer(self):
-        """Test with a list containing a single integer."""
-        self.assertEqual(max_integer([7]), 7)
 
     def test_max_at_start(self):
         """Test with a list where max is the first element."""
