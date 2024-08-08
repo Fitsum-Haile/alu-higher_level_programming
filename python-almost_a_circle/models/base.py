@@ -4,6 +4,7 @@ Module base
 Defines the Base class for managing the id attribute.
 """
 
+
 class Base:
     """
     Base class for all future classes in the project.
