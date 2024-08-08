@@ -1,25 +1,29 @@
 #!/usr/bin/python3
 """
-Prints a text with 2 new lines after each of these characters: ., ? and :.
+Module for text indentation.
 """
 
 def text_indentation(text):
     """
-    Prints text with 2 new lines after each '.', '?', and ':'.
+    Function that formats a string with proper indentation.
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    
-    characters = ".?:"
+
+    punctuation_marks = ['.', '?', ':']
     new_text = ""
+    indent = False
+
     for char in text:
-        new_text += char
-        if char in characters:
-            new_text += "\n\n"
-    
-    # Remove trailing spaces on each line
-    lines = new_text.split("\n")
-    trimmed_lines = [line.strip() for line in lines]
-    final_text = "\n".join(trimmed_lines)
-    
-    print(final_text)
+        if char in punctuation_marks:
+            new_text += char
+            new_text += '\n\n'
+            indent = True
+        else:
+            if indent and char == ' ':
+                continue
+            else:
+                new_text += char
+                indent = False
+
+    print(new_text.strip())

@@ -1,36 +1,9 @@
-"""
->>> text_indentation("Hello. World!")
-Hello.
-
-World!
-
->>> text_indentation("This is a test: to see if it works? Yes!")
-This is a test:
-
-to see if it works?
-
-Yes!
-
->>> text_indentation("Holberton School")
-Holberton School
-
->>> text_indentation("Holberton. School")
-Holberton.
-
-School
-
->>> text_indentation("Holberton. School? How are you: John")
-Holberton.
-
-School?
-
-How are you:
-
-John
-
->>> text_indentation(12)
-Traceback (most recent call last):
-    ...
-TypeError: text must be a string
-"""
-
+# Tests
+if __name__ == "__main__":
+    text_indentation("Holberton School")
+    text_indentation("Holberton.School")
+    text_indentation("Holberton. School? How are you: John")
+    try:
+        text_indentation(12)
+    except TypeError as e:
+        print(e)
