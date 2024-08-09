@@ -27,11 +27,14 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state = session.query(State).filter(State.name == state_name).first()
+    try:
+        state = session.query(State).filter(State.name == state_name).first()
 
-    if state:
-        print(state.id)
-    else:
-        print("Not found")
-
-    session.close()
+        if state:
+            print(state.id)
+        else:
+            print("Not found")
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        session.close()
