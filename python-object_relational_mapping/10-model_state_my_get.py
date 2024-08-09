@@ -10,16 +10,17 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
+    # Ensure that the correct number of arguments are provided
     if len(sys.argv) != 4:
-        print("Usage: ./10-model_state_my_get.py \
-<mysql username> <mysql password> <database name> <state name>")
         sys.exit(1)
 
+    # Parse command line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
 
+    # Create an engine and a session
     engine = create_engine(
         f'mysql+mysqldb://{username}:{password}@localhost/{database}',
         pool_pre_ping=True
@@ -28,13 +29,17 @@ if __name__ == "__main__":
     session = Session()
 
     try:
+        # Query the state with the provided name
         state = session.query(State).filter(State.name == state_name).first()
 
+        # Print the result or "Not found" if no state matches
         if state:
             print(state.id)
         else:
             print("Not found")
     except Exception as e:
+        # Print an error message if there is an issue with the database query
         print(f"Error: {e}")
     finally:
+        # Close the session
         session.close()
