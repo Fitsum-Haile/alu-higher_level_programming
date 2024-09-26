@@ -1,27 +1,10 @@
 #!/usr/bin/node
-
 const fs = require('fs');
-const path = require('path');
-
-const [fileA, fileB, fileC] = process.argv.slice(2);
-
-fs.readFile(fileA, 'utf8', (err, dataA) => {
-  if (err) {
-    console.error(`Error reading ${fileA}:`, err);
-    return;
-  }
-
-  fs.readFile(fileB, 'utf8', (err, dataB) => {
-    if (err) {
-      console.error(`Error reading ${fileB}:`, err);
-      return;
-    }
-
-    fs.writeFile(fileC, dataA + dataB, (err) => {
-      if (err) {
-        console.error(`Error writing to ${fileC}:`, err);
-        return;
-      }
-    });
-  });
-});
+const args = process.argv.slice(2);
+if (args.length < 3) {
+  console.log('Usage: ./102-concat.js fileA fileB fileC');
+  process.exit(1);
+}
+const fa = fs.readFileSync(args[0]);
+const fb = fs.readFileSync(args[1]);
+fs.writeFileSync(args[2], fa + fb);
