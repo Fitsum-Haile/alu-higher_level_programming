@@ -22,7 +22,6 @@ fs.readFile(fileA, 'utf8', (err, dataA) => {
         console.error(`Error writing to ${fileC}:`, err);
         return;
       }
-      console.log(`Successfully concatenated ${fileA} and ${fileB} into ${fileC}`);
     });
   });
 });
