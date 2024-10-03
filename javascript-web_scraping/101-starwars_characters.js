@@ -1,16 +1,27 @@
 #!/usr/bin/node
+
 const request = require('request');
-request(process.argv[2], (err, res, body) => {
-  if (!err) {
-    const tasks = JSON.parse(body);
-    const completed = {};
-    tasks.forEach(task => {
-      if (task.completed && completed[task.userId] === undefined) {
-        completed[task.userId] = 1;
-      } else if (task.completed) {
-        completed[task.userId] += 1;
-      }
-    });
-    console.log(completed);
+const movieId = process.argv[2];
+const apiUrl = `https://swapi-api.hbtn.io/api/films/${movieId}/`;
+
+request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error);
+    return;
   }
+
+  const film = JSON.parse(body);
+  const characters = film.characters;
+
+  characters.forEach((characterUrl) => {
+    request(characterUrl, (error, response, body) => {
+      if (error) {
+        console.error('Error:', error);
+        return;
+      }
+
+      const character = JSON.parse(body);
+      console.log(character.name);
+    });
+  });
 });
