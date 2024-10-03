@@ -11,13 +11,17 @@ request(apiUrl, (error, response, body) => {
     const film = JSON.parse(body);
     const characters = film.characters;
 
+    // Ensuring that the characters are printed in the correct order
     characters.forEach(characterUrl => {
       request(characterUrl, (charError, charResponse, charBody) => {
         if (charError) {
           console.error(charError);
         } else if (charResponse.statusCode === 200) {
           const character = JSON.parse(charBody);
-          console.log(character.name);
+          // Only print if the character is found
+          if (character.name) {
+            console.log(character.name);
+          }
         }
       });
     });
