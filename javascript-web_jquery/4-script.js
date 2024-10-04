@@ -1,3 +1,5 @@
-$('#toggle_header').click(function() {
+/* global $ */
+
+$('#toggle_header').click(function () {
   $('header').toggleClass('red green');
 });
